@@ -1,0 +1,8 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ant-popover-inner {
+    font-family: 'Asap', sans-serif !important;
+}

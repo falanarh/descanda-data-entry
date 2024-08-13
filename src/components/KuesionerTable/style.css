@@ -1,0 +1,14 @@
+/* styles.css */
+.striped-row:nth-child(even) {
+  background-color: #eeeeee; /* Example color for odd rows */
+}
+
+.striped-row td:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.striped-row td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
