@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Breadcrumbs from "../components/BreadCrumb";
+import Breadcrumbs from "../components/Breadcrumb";
 import ListingEditSection from "../components/ListingEditSection";
 import { useEffect, useState } from "react";
 import { getOneListing } from "../services/listingService";

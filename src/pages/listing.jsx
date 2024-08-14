@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Breadcrumbs from "../components/BreadCrumb";
+import Breadcrumbs from "../components/Breadcrumb";
 import ListingTable from "../components/ListingTable";
 import { getAllListing } from "../services/listingService";
 import Loader from "../components/Loader";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Breadcrumbs from "../components/BreadCrumb";
+import Breadcrumbs from "../components/Breadcrumb";
 import KuesionerSection from "../components/KuesionerSection";
 import { useParams } from "react-router-dom";
 import { getOneListing } from "../services/listingService";

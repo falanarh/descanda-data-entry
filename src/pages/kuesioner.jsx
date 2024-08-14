@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Breadcrumbs from "../components/BreadCrumb";
+import Breadcrumbs from "../components/Breadcrumb";
 import KuesionerTable from "../components/KuesionerTable";
 import { getAllKuesioner } from "../services/kuesionerService";
 import Loader from "../components/Loader";

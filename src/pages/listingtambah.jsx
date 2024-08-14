@@ -1,4 +1,4 @@
-import Breadcrumbs from "../components/BreadCrumb";
+import Breadcrumbs from "../components/Breadcrumb";
 import ListingSection from "../components/ListingSection";
 
 const ListingTambahPage = () => {

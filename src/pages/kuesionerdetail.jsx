@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Breadcrumbs from "../components/BreadCrumb";
+import Breadcrumbs from "../components/Breadcrumb";
 import KuesionerDetail from "../components/KuesionerDetail";
 import { useEffect, useState } from "react";
 import { getOneKuesioner } from "../services/kuesionerService";
