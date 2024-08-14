@@ -4,6 +4,7 @@ import "./style.css";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
 import { RiCloseCircleLine } from "react-icons/ri";
+import { decodeAndSaveToken } from "../services/utils";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -31,6 +32,7 @@ const Login = () => {
       if (data.token) {
         // Store token
         localStorage.setItem("token", data.token);
+        decodeAndSaveToken(data.token);
       } else {
         setError("Login failed: No token received.");
         return;

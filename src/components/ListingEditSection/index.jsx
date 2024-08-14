@@ -132,6 +132,7 @@ const ListingEditSection = ({ data, id }) => {
       navigate("/listing");
     } catch (error) {
       console.log("Error:", error);
+      message.error("Terjadi error: " + error.message, 5);
     } finally {
       setIsLoading(false);
     }

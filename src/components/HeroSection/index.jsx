@@ -22,8 +22,15 @@ const HeroSection = ({ scrollToTutorial, scrollToProgress }) => {
     }
   }, [isLogoLoaded, isSdaLogoLoaded]);
 
+  // useEffect(() => {
+  //   if (containerRef.current) {
+  //     containerRef.current.addEventListener("scroll", handleScroll);
+  //   }
+
+  //   return () => {
+
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-8 h-screen-minus-64">
+    <div className="flex flex-col items-center justify-center w-full gap-8 h-screen-minus-64">
       <div className="flex items-center gap-3">
         {/* Skeleton for the first image */}
         {!isLogoLoaded && <Skeleton width={100} height={100} circle />}
@@ -47,7 +54,7 @@ const HeroSection = ({ scrollToTutorial, scrollToProgress }) => {
       </div>
 
       {showH2 && (
-        <h2 className="text-xl font-semibold bg-porange rounded-xl text-base px-4 py-2">
+        <h2 className="px-4 py-2 text-base text-xl font-semibold bg-porange rounded-xl">
           <Typewriter
             onInit={(typewriter) => {
               typewriter
@@ -66,7 +73,7 @@ const HeroSection = ({ scrollToTutorial, scrollToProgress }) => {
       )}
 
       {showH1 && (
-        <h1 className="text-3xl font-semibold italic">
+        <h1 className="text-3xl italic font-semibold">
           <Typewriter
             onInit={(typewriter) => {
               typewriter
