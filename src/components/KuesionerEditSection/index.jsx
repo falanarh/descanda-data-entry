@@ -417,7 +417,7 @@ const KuesionerEditSection = ({ data, id }) => {
       navigate("/kuesioner");
     } catch (error) {
       console.log("Error:", error);
-      message.error("Data kuesioner gagal diedit.", 5);
+      message.error("Terjadi error: " + error.message, 5);
     } finally { 
       setIsLoading(false);
     }

@@ -25,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/beranda" replace />} />
         <Route path="/listing-back" element={<Navigate to="/listing" replace />} />
+        <Route path="/kuesioner-back" element={<Navigate to="/kuesioner" replace />} />
         <Route path="/login" element={<Login />} />
         <Route path="/beranda" element={<Beranda />} />
         <Route

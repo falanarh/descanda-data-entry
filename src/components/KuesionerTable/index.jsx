@@ -12,7 +12,7 @@ import {
 } from "@nextui-org/react";
 import { EyeIcon } from "./EyeIcon";
 import { EditIcon } from "./EditIcon";
-import { Popconfirm } from "antd";
+import { message, Popconfirm } from "antd";
 import { DeleteIcon } from "./DeleteIcon";
 import React, { useEffect, useState } from "react";
 import { SearchIcon } from "./SearchIcon";
@@ -26,12 +26,15 @@ import { PiMicrosoftExcelLogoFill } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import UmkmList from "../UmkmList";
 import { wilayahRt } from "../KuesionerSection/data";
+import { deleteKuesioner } from "../../services/kuesionerService";
+import * as XLSX from "xlsx"; 
 
 const KuesionerTable = ({ fetchedData, umkms}) => {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
   const [isUmkmListOpen, setIsUmkmListOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setData(fetchedData);
@@ -51,12 +54,39 @@ const KuesionerTable = ({ fetchedData, umkms}) => {
     navigate(`edit/${data._id}`);
   };
 
-  const handleDeleteClick = (data) => {};
+  const handleDeleteClick = async (data) => {
+    console.log("Delete Clicked", data);
+    setIsLoading(true);
+    try {
+      await deleteKuesioner(data._id);
+      message.success("Data kuesioner berhasil dihapus", 5);
+      navigate("/kuesioner-back");
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        message.error(error.response.data.message, 5);
+      } else {
+        message.error(error.message, 5);
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleAddClick = () => {
     console.log("Add Clicked");
     setIsUmkmListOpen(true);
     // navigate("tambah");
+  };
+
+  const handleExportClick = () => {
+    const ws = XLSX.utils.json_to_sheet(filteredData);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "KuesionerData");
+    XLSX.writeFile(wb, "KuesionerData.xlsx");
   };
 
   const filteredData = data.filter((dataItem) =>
@@ -188,6 +218,7 @@ const KuesionerTable = ({ fetchedData, umkms}) => {
               <PiMicrosoftExcelLogoFill className="size-[24px] text-white ml-[10px]" />
             }
             label="Ekspor"
+            onClick={handleExportClick}
           />
         </div>
       </div>
