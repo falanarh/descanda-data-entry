@@ -130,7 +130,7 @@ const Navbar = () => {
           <MenuItem path="/beranda" label="Beranda" />
           <MenuItem path="/listing" label="Listing" />
           <MenuItem path="/kuesioner" label="Kuesioner" />
-          <MenuItem path="/user" label="User" />
+          {/* <MenuItem path="/user" label="User" /> */}
         </ul>
         <div className="relative items-center order-2 hidden gap-2 text-base md:order-3 lg:pb-2 lg:flex">
           <TbUserSquareRounded size={35} onClick={handleUserClick} />
