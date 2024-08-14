@@ -78,7 +78,9 @@ const HeroSection = ({ scrollToTutorial, scrollToProgress }) => {
             onInit={(typewriter) => {
               typewriter
                 .typeString(
-                  "Selamat datang di Entri Data Desa Cantik Sidoarjo, Falana!"
+                  "Selamat datang di Entri Data Desa Cantik Sidoarjo, " +
+                    localStorage.getItem("namaLengkap") +
+                    "!"
                 )
                 .pauseFor(2500)
                 .start();
